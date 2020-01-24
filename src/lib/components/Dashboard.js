@@ -1,10 +1,14 @@
 import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-export default class Header extends React.Component {
+export default class Dashborad extends React.Component {
     render() {
         return (
             <div>
-                Footer
+                <Header />
+                Dashborad
+                <Footer />
             </div>
         )
     }

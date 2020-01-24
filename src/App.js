@@ -1,14 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+
+import AppRouter from './lib/router/AppRouter';
+import Login from './lib/components/Login';
+
 import './App.css';
-import Login from './lib/components/Login'
 
-function App() {
-  return (
-    <div>
-      <Login></Login>
-    </div>
-  );
-}
+const app = (
+  <div>
+    <AppRouter />
+  </div>
+  
+)
 
-export default App;
+ReactDOM.render(app, document.getElementById('root'));
+
+
