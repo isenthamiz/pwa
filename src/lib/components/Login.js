@@ -47,6 +47,9 @@ export default class Login extends React.Component {
     render() {
         return (
             <div>
+            <div className="app-title">
+                <h1>hurly-burly</h1>
+            </div>
             <div className="login-container">
                 <form className="login-form" onSubmit={this.onFormSubmit}>
                     <input id="loginusername" type="text" placeholder="Username"></input>
