@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
 
 body {
   margin: 0;
   background: url('./../public/static/imgs/login-background.png');
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Source Sans Pro', sans-serif;
 }

@@ -12,7 +12,7 @@ export default class Header extends React.Component {
                     </ul>
                 </div>
                 <div  className="main-logo">
-                    <span>hurly-burly</span>
+                    
                 </div>
                 <div className="main-nav">
                     <ul className="main-nav-items">
