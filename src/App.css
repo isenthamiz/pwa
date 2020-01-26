@@ -1,5 +1,7 @@
 
 body {
   margin: 0;
-  background: #696969
+  background: url('./../public/static/imgs/login-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }

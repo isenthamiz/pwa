@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
 export default function(WrappedComponent) {
@@ -6,12 +7,20 @@ export default function(WrappedComponent) {
         constructor(props) {
             super(props)
         }
-
+        
         render()  {
-            if(false) {
-                <Redirect to='/login' />
+            if(this.props.token) {
+                return <WrappedComponent />
             }
-            return <WrappedComponent />
+            return <Redirect to="/login" />
         }
     }
+
+    function mapStateToProps(state) {
+        return {
+            token: state.token
+        }
+    }
+
+    return connect(mapStateToProps)(Authenticate)
 }

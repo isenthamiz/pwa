@@ -1,7 +1,10 @@
 import React from 'react';
+import {Connect, connect} from 'react-redux';
+
+import {userLogin} from './../../actions/loginActions';
 import './../../styles/Login.css';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,6 +29,13 @@ export default class Login extends React.Component {
                         isLoggedIn: true
                     }
                 })
+                let data = {};
+                data.id = 1;
+                data.name = 'Senthamiz';
+                data.username = username;
+                data.token = 'ksksksksksksk';
+                data.isLoggedIn = true;
+                this.props.dispatch(userLogin(data));
                 this.props.history.push('/')
             } else {
                 this.setState((prevState)=>{
@@ -59,7 +69,7 @@ export default class Login extends React.Component {
             </div>
             <div className="signup-container">
                 <div>
-                    <h3>Dont you have account ?</h3>
+                    <span>Dont you have account ?</span>
                     <button id="signup-button">Sign Up</button>
                 </div>
             </div>
@@ -67,3 +77,5 @@ export default class Login extends React.Component {
         )
     }
 }
+
+export default connect()(Login)

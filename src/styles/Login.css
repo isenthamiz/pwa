@@ -1,39 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Coiny|Condiment|Covered+By+Your+Grace|Damion|Dancing+Script|Pacifico|Sarina|Satisfy|Turret+Road|Warnes&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
 
 .app-title h1{
     font-family: 'Satisfy',  sans-serif;
-    color: #e68cc0;
+    color: #b62f5c;
     font-size: 3.2rem;
     margin: 1.6rem;
-    text-shadow: 2px 2px 10px #a06686;
+    text-shadow: 2px 2px 10px #9d4864;
 }
 
 .signup-container {
     width: 50%;
     height: 400px;
-    background: rgba(255, 255, 255, 0.3);
+    background: #b62f5c;
+    opacity: 0.9;
     position: fixed;
     left: 23%;
     top: 31%;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 45%;
+    align-items: center;
+    justify-items:center;
 }
 
-.signup-container h3 {
+.signup-container div {
+    grid-column-start: 2;
+    text-align: center;
+}
+
+.signup-container span {
+    margin: 0;
+    padding: 0;
+    display:block;
     font-family: 'Anton', sans-serif;
     font-size:x-large;
     color:white;
-    margin-right:3rem;
+    text-align: center;
 }
 
 .login-container {
     width: 25%;
     height: 500px;
-    background: whitesmoke;
+    background: #9FB62F;
     box-shadow: 2px 2px 10px rgba(0,0,0, 0.5);
     position: fixed;
     left: 25%;
@@ -57,24 +67,32 @@
     width: 70%;
     height: 3rem;
     font-size: large;
-    color:  #4b5eab;
-    border: #1c2340 1px solid;
+    color:  #b62f5c;
+    border: #9FB62F 1px solid;
     padding: 0 1rem;
     background: whitesmoke;
+    opacity: 0.7;
+}
+
+.login-form input:hover,
+.login-form input:active {
+    opacity: 1;
 }
 
 #login-button {
     width: 7rem;
     height: 50px;
     margin:0.5rem;
-    border: #e68cc0 1px solid;
-    background: #e68cc0;
-    box-shadow: 2px 2px 10px #e68cc0;
+    border: #b62f5c 1px solid;
+    background: #b62f5c;
+    box-shadow: 2px 2px 10px #b62f5c;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
 }
 
 #login-button:hover,
 #login-button:active {
-    background: #de6aae;
+    background: #9d4864;
     color: whitesmoke;
 }
 
@@ -84,6 +102,8 @@
     margin:0.5rem;
     border: whitesmoke 1px solid;
     background: rgba(0,0,0, 0);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
 }
 
 #signup-button:hover,
