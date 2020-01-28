@@ -6,6 +6,9 @@ import configureStore from './store/configureStore';
 import AppRouter from './lib/router/AppRouter';
 import Login from './lib/components/Login';
 
+require("babel-core/register");
+require("babel-polyfill");
+
 import './App.css';
 
 const store =configureStore();

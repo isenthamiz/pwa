@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import {Connect, connect} from 'react-redux';
 
+import configs from './../../configs/configs';
 import {userLogin} from './../../actions/loginActions';
 import './../../styles/Login.css';
 
@@ -16,12 +18,16 @@ class Login extends React.Component {
         this.onFormSubmit  = this.onFormSubmit.bind(this);
     }
 
-    onFormSubmit(event) {
+    async onFormSubmit(event) {
+        let responseData = undefined;
         event.preventDefault();
         let username = event.target.elements.loginusername.value;
         let password = event.target.elements.loginpassword.value;
         if(username && password) {
-            if(username == 'admin' && password == 'admin') {
+            let response = await axios.post(`${configs.loginApi.host}:${configs.loginApi.port}${configs.loginApi.endpoint.login}`, {"username": username, "password": password})
+            console.log(response)
+            responseData = response.data;
+            if(responseData) {
                 this.setState((prevState)=>{
                     return {
                         username,
@@ -33,7 +39,7 @@ class Login extends React.Component {
                 data.id = 1;
                 data.name = 'Senthamiz';
                 data.username = username;
-                data.token = 'ksksksksksksk';
+                data.token = responseData.token;
                 data.isLoggedIn = true;
                 this.props.dispatch(userLogin(data));
                 this.props.history.push('/')
