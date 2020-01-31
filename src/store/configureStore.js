@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
 
-import LoginReducer from './../reducers/loginReducer';
+import reducer from './../reducers/index';
 
 export default () => {
-    return createStore(LoginReducer)
+    return createStore(reducer)
 }

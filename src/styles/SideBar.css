@@ -63,7 +63,8 @@
     align-items: flex-end;
 }
 
-.sidebar-items span:hover{
+.sidebar-items span:hover,
+.sidebar-items span.active{
     background: #dfdfdf;
     align-items: flex-start;
 }

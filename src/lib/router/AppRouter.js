@@ -10,7 +10,9 @@ export default class AppRouter extends React.Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" component={Dashboard} exact={true} />
+                    <Route path="/" component={Dashboard} exact={true}/>
+                    <Route path="/tasks/:id" component={Dashboard} />
+                    <Route path="/tasks/:tid/lists/:lid" component={Dashboard} />
                     <Route path='/login' component={Login} />
                 </Switch>
             </BrowserRouter>

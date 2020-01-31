@@ -13,7 +13,7 @@ export default class Todo extends React.Component {
                     
                     <form className="todo-add-details">
                         <input type="text"></input>
-                        <button><i class="fas fa-arrow-up"></i></button>
+                        <button><i className="fas fa-arrow-up"></i></button>
                     </form>
                     
                 </div>

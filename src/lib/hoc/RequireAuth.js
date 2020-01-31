@@ -18,7 +18,7 @@ export default function(WrappedComponent) {
 
     function mapStateToProps(state) {
         return {
-            token: state.token
+            token: state.LoginReducer.token
         }
     }
 
