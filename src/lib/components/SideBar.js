@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import {setActive} from './../../actions/tasksAction';
 import './../../styles/SideBar.css';
@@ -8,7 +9,7 @@ class SideBar extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            lists: ['All Tasks', 'Personal', 'Work', 'Grossary'],
+            lists: [{id: 1, title: 'All Tasks'}, {id: 2, title: 'Personal'}, {id: 3, title: 'Work'}, {id: 4, title: 'Grossary'}],
             itemIndex: -1,
             activeItem: 'All Tasks'
         };  
@@ -21,7 +22,7 @@ class SideBar extends React.Component {
         let entry = e.target.elements.entry.value;
         this.setState((state)=>{
             return {
-                lists: [...state.lists, entry]
+                lists: [...state.lists, {id: 5, title: entry}]
             }
         })
         e.target.elements.entry.value = '';
@@ -29,13 +30,14 @@ class SideBar extends React.Component {
 
     _selectTask(index,item) {
         let data = {}
-        data.activeTask = item;
+        data.activeTask = item.title;
         this.props.dispatch(setActive(data));
         this.setState((state)=> {
             return  {
                 itemIndex:  index
             }
-        })
+        });
+        this.props.history.push(`/Tasks/${item.id}`);
     }
 
     render() {
@@ -51,7 +53,7 @@ class SideBar extends React.Component {
                     </div>
                     <div className="sidebar-items-container">
                     <ul className="sidebar-items">
-                        {this.state.lists.map((item,index) => <span key={item} className={this.state.itemIndex === index ? "active" : null} onClick={this._selectTask.bind(this,index,item)}><li className="sidebar-item">{item}</li></span>)}
+                        {this.state.lists.map((item,index) => <span key={item.title} className={this.state.itemIndex === index ? "active" : null} onClick={this._selectTask.bind(this,index,item)}><li className="sidebar-item">{item.title}</li></span>)}
                     </ul>
                     </div>
                     <div>
@@ -68,4 +70,4 @@ class SideBar extends React.Component {
     }
 }
 
-export default connect()(SideBar)
+export default withRouter(connect()(SideBar))
