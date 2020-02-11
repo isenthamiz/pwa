@@ -1,21 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import {addItem} from './../../actions/tasksAction';
 import './../../styles/Todo.css';
 
-export default class Todo extends React.Component {
+class Todo extends React.Component {
+    constructor(props) {
+        super(props)
+        this._formSubmit = this._formSubmit.bind(this);
+    }
+
+    _formSubmit(e) {
+        e.preventDefault();
+        let data={}
+        data.item = e.target.elements.additem.value;
+        this.props.dispatch(addItem(data));
+        e.target.elements.additem.value = '';
+    }
+
     render() {
         return (
             <div className="todo-container">
                 <div className="todo-lists">
-                    <div>
-
+                    <div className="todo-list-itmes">
+                        {this.props.activeItems.map(function (item) {
+                            return <div key={item} className="todo-list-item">
+                                <div className="container">
+                                    <input value={item} type="checkbox" />
+                                    <span className="checkmark" />
+                                </div>
+                                <label>{item}</label>
+                            </div>
+                        })}
                     </div>
-                    
-                    <form className="todo-add-details">
-                        <input type="text"></input>
+
+                    <form className="todo-add-details" onSubmit={this._formSubmit}>
+                        <input id="additem" type="text"></input>
                         <button><i className="fas fa-arrow-up"></i></button>
                     </form>
-                    
+
                 </div>
                 <div className="todo-details">
                     <div className="todo-details-header">
@@ -38,3 +61,11 @@ export default class Todo extends React.Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        activeItems: state.TasksReducer.activeItems
+    }
+}
+
+export default connect(mapStateToProps)(Todo)

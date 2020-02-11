@@ -4,3 +4,10 @@ export const setActive = (data={}) =>  {
         data
     }
 }
+
+export const addItem = (data={}) => {
+    return {
+        type: 'ADD_ITEM',
+        data
+    }
+}
